@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{meta_title}}</title>
+    <link rel="stylesheet" href="{{asset " built/screen.css"}}">
+
+    {{ghost_head}}
+</head>
+
+<body class="{{body_class}}{{{block " body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"
+    }}left-logo{{else match @custom.navigation_layout "Logo in the middle"
+    }}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif" }}
+    has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif" }} has-serif-body{{/match}}">
+
+    <div class="gh-site">
+
+        <header id="gh-head" class="gh-head gh-outer">
+
+            <div class="gh-head-inner gh-inner">
+                <div class="gh-head-brand">
+                    <div class="gh-head-brand-wrapper">
+                        <a class="gh-head-logo" href="{{@site.url}}">
+                            {{#if @site.logo}}
+                            <img src="{{@site.logo}}" alt="{{@site.title}}">
+                            {{else}}
+                            {{@site.title}}
+                            {{/if}}
+                        </a>
+                    </div>
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{>
+                        "icons/search"}}</button>
+                    <button class="gh-burger"></button>
+                </div>
+
+                <nav class="gh-head-menu">
+                    {{navigation}}
+                    {{#unless @site.members_enabled}}
+                    {{#match @custom.navigation_layout "Stacked"}}
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{>
+                        "icons/search"}}</button>
+                    {{/match}}
+                    {{/unless}}
+                </nav>
+
+                <div class="gh-head-actions">
+
+                    {{#unless @site.members_enabled}}
+                    {{^match @custom.navigation_layout "Stacked"}}
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{>
+                        "icons/search"}}</button>
+                    {{/match}}
+                    {{else}}
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{>
+                        "icons/search"}}</button>
+
+                    {{/unless}}
+                    <button type="button" aria-disabled="false"
+                        class="border-french-blue-700 text-french-blue-700 inline-flex items-center rounded-full border-2 border-solid px-3 py-2 text-xs font-semibold transition-all duration-300 hover:scale-105"><svg
+                            stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mr-2"
+                            height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path
+                                d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.074 15.074 0 01-6.59-6.58l2.2-2.21c.28-.27.36-.66.25-1.01A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM12 3v10l3-3h6V3h-9z">
+                            </path>
+                        </svg>Connect</button>
+                </div>
+            </div>
+            <div class="vectbox">
+            </div>
+        </header>
+
+    </div>
+
+    </div>
+    </div>
+
+    {{#is "post, page"}}
+    {{> "pswp"}}
+    {{/is}}
+
+    <script src="{{asset " built/main.min.js"}}"></script>
+
+    {{ghost_foot}}
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+.gh-head {
+    background-color: white;
+}
+
+.gh-head-menu,
+a,
+.gh-head-actions {
+    font-size: 16px;
+  font-weight: 400;
+  -webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  padding-left: 665px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+color: #3454e0;
+}
+
+.gh-head-btn {
+    --multiplier: 1.3;
+
+}
+
+.gh-site {
+    background: white;
+}
+
+.vectbox {
+    background-image: url('/assets/images/vector.png');
+    margin-top: 933;
+    margin-left: 1947;
+    box-sizing: border-box;
+    background-size: cover;
+    /* Adjust as needed */
+    background-position: center;
+    /* Adjust as needed */
+    background-repeat: no-repeat;
+}

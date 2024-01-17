@@ -1,0 +1,15 @@
+routes:
+
+  # This is the root route.
+  # Data context mapped to the page with the slug 'landing'
+  /:
+    data: page.home
+    template: home
+collections:
+  /blog/:
+    permalink: /blog/{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/
